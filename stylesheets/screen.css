@@ -1,0 +1,238 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 23, ../sass/screen.scss */
+html, body {
+  width: 100%;
+}
+
+/* line 31, ../sass/screen.scss */
+body {
+  background: url("../images/bg-h.jpg") repeat-x fixed 0 0 #a6dbd4;
+  font: 13.34px helvetica,arial,freesans,clean,sans-serif;
+  color: #6e635c;
+  overflow-x: hidden;
+}
+
+/* line 39, ../sass/screen.scss */
+a {
+  color: #52a7fa;
+  text-decoration: none;
+}
+/* line 4, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 44, ../sass/screen.scss */
+h1 {
+  font-size: 34px;
+  margin-bottom: 0.5em;
+}
+
+/* line 49, ../sass/screen.scss */
+h2 {
+  font-size: 24px;
+  margin-bottom: 0.5em;
+}
+
+/* line 54, ../sass/screen.scss */
+#site {
+  width: 958px;
+  margin: 0 auto;
+}
+
+/* line 59, ../sass/screen.scss */
+#header {
+  margin-top: 70px;
+  border-radius: 5px 5px 5px 5px;
+}
+/* line 62, ../sass/screen.scss */
+#header h1 {
+  font-family: 'Tangerine', cursive;
+  font-weight: bold;
+  font-size: 55px;
+  padding: 4px 10px;
+  margin-bottom: 0;
+}
+/* line 69, ../sass/screen.scss */
+#header #nav {
+  padding-top: 10px;
+  border-radius: 5px;
+}
+/* line 72, ../sass/screen.scss */
+#header #nav ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 60, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#header #nav ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#header #nav ul li:first-child, #header #nav ul li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#header #nav ul li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../.rvm/gems/ruby-1.9.2-p290@wedding/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#header #nav ul li.last {
+  padding-right: 0;
+}
+/* line 74, ../sass/screen.scss */
+#header #nav ul li a {
+  color: #6e635c;
+  font-weight: bold;
+  display: inline-block;
+  border: 2px solid #bbbbbb;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #dddddd;
+  margin-right: 10px;
+  text-shadow: 0 1px 2px #a8998f;
+  -moz-transition: border-color .30s ease-in;
+  -webkit-transition: border-color .30s ease-in;
+}
+/* line 86, ../sass/screen.scss */
+#header #nav ul li a:hover {
+  text-decoration: none;
+  border-color: #6e635c;
+  -webkit-transition: border-color .30s ease-in;
+  -moz-transition: border-color .30s ease-in;
+}
+
+/* line 98, ../sass/screen.scss */
+#header h1 {
+  text-shadow: 0 0 3px #a8998f;
+  -moz-transition: text-shadow .25s linear;
+  -webkit-transition: text-shadow .25s linear;
+  transition: text-shadow .25s linear;
+}
+/* line 103, ../sass/screen.scss */
+#header h1:hover {
+  text-shadow: 0 2px 4px #a8998f;
+  -moz-transition: text-shadow .25s linear;
+  -webkit-transition: text-shadow .25s linear;
+  transition: text-shadow .25s linear;
+}
+
+/* line 110, ../sass/screen.scss */
+.main {
+  position: relative;
+}
+/* line 112, ../sass/screen.scss */
+.main h2 {
+  font-family: 'Tangerine', cursive;
+  font-size: 40px;
+  margin-bottom: .25em;
+}
+/* line 117, ../sass/screen.scss */
+.main .article {
+  border: 15px solid #FFFFFF;
+  box-shadow: 1px 2px 6px #a8998f;
+  border-radius: 5px;
+  background-color: #dddddd;
+  margin: 15px 0 20px 0;
+  padding: 10px 20px;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 125, ../sass/screen.scss */
+.main .article p {
+  margin: 10px 0;
+  padding: 5px;
+}
+/* line 126, ../sass/screen.scss */
+.main .article p img.key-image {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+/* line 137, ../sass/screen.scss */
+#footer {
+  width: 958px;
+  margin: 10px auto;
+  padding: 10px;
+}
+/* line 141, ../sass/screen.scss */
+#footer span {
+  float: right;
+}

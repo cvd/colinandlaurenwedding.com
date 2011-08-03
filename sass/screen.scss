@@ -1,0 +1,145 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/links/hover-link";
+@import "compass/utilities/text/ellipsis";
+@import "compass/utilities/lists/horizontal-list";
+$site-width: 958px;
+$light-blue: #a6dbd4;
+$light-gray: #DDDDDD;
+$medium-gray: #BBBBBB;
+$dark-gray: #444444;
+$medium-blue: #52A7FA;
+$gray-brown: #6E635C;
+$other-gray-brown: #5E564F;
+$light-gray-brown: #A8998F;
+
+// @import url(Tangerine_Regular.ttf:400,700);
+
+html, body {
+  width: 100%;
+}
+// @font-face {
+//   font-family: 'tangerine';
+//   src: url('Tangerine_Regular.ttf') format("truetype");
+// }
+
+body {
+  // background: url("/images/page-bk.jpg") repeat fixed 0 0 #E6E6E6;
+  background: url("../images/bg-h.jpg") repeat-x fixed 0 0 $light-blue;
+  font: 13.34px helvetica,arial,freesans,clean,sans-serif;
+  color: $gray-brown;
+  overflow-x: hidden;
+}
+
+a {
+  color: $medium-blue;
+  @include hover-link;
+}
+
+h1 {
+  font-size: 34px;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 0.5em;
+}
+
+#site {
+  width: $site-width;
+  margin: 0 auto;
+}
+
+#header {
+  margin-top: 70px;
+  border-radius: 5px 5px 5px 5px;
+  h1 {
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    font-size: 55px;
+    padding: 4px 10px;
+    margin-bottom: 0;
+  }
+  #nav {
+    padding-top: 10px;
+    border-radius: 5px;
+    ul {
+      @include horizontal-list;
+      li a {
+        color: $gray-brown;
+        font-weight: bold;
+        display: inline-block;
+        border: 2px solid $medium-gray;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: $light-gray;
+        margin-right: 10px;
+        text-shadow: 0 1px 2px $light-gray-brown;
+        -moz-transition: border-color .30s ease-in;
+        -webkit-transition: border-color .30s ease-in;
+        &:hover {
+          text-decoration: none;
+          border-color: $gray-brown;
+          -webkit-transition: border-color .30s ease-in;
+          -moz-transition: border-color .30s ease-in;
+        }
+
+      }
+    }
+  }
+}
+
+#header h1 {
+  text-shadow: 0 0 3px $light-gray-brown;
+  -moz-transition: text-shadow .25s linear;
+  -webkit-transition: text-shadow .25s linear;
+  transition: text-shadow .25s linear;
+  &:hover {
+    text-shadow: 0 2px 4px $light-gray-brown;
+    -moz-transition: text-shadow .25s linear;
+    -webkit-transition: text-shadow .25s linear;
+    transition: text-shadow .25s linear;
+  }
+}
+.main {
+  position: relative;
+  h2 {
+    font-family: 'Tangerine', cursive;
+    font-size: 40px;
+    margin-bottom: .25em;
+  }
+  .article {
+    border: 15px solid #FFFFFF;
+    box-shadow: 1px 2px 6px $light-gray-brown;
+    border-radius: 5px;
+    background-color: $light-gray;
+    margin: 15px 0 20px 0;
+    padding: 10px 20px;
+    @include clearfix;
+    p {
+      img.key-image {
+        float: left;
+        margin: 0 10px 5px 0;
+      }
+      margin: 10px 0;
+      padding: 5px;
+    }
+  }
+}
+
+
+#footer {
+  width: $site-width;
+  margin: 10px auto;
+  padding: 10px;
+  span {
+    float: right;
+  }
+}
+
