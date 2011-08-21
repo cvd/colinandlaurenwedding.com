@@ -29,7 +29,6 @@ html, body {
 // }
 
 body {
-  // background: url("/images/page-bk.jpg") repeat fixed 0 0 #E6E6E6;
   background: url("../images/bg-h.jpg") repeat-x fixed 0 0 $light-blue;
   font: 13.34px helvetica,arial,freesans,clean,sans-serif;
   color: $gray-brown;
@@ -51,8 +50,15 @@ h2 {
   margin-bottom: 0.5em;
 }
 
+h3 {
+  font-size: 24px;
+  margin-bottom: 0.5em;
+}
+strong {
+  font-weight: bold;
+}
+
 #site {
-  width: $site-width;
   margin: 0 auto;
 }
 
@@ -60,6 +66,9 @@ h2 {
   margin-top: 70px;
   border-radius: 5px 5px 5px 5px;
   h1 {
+    width: $site-width;
+    margin-left: auto;
+    margin-right: auto;
     font-family: 'Tangerine', cursive;
     font-weight: bold;
     font-size: 55px;
@@ -67,6 +76,8 @@ h2 {
     margin-bottom: 0;
   }
   #nav {
+    margin: 0 auto;
+    width: 800px;
     padding-top: 10px;
     border-radius: 5px;
     ul {
@@ -89,6 +100,9 @@ h2 {
           -webkit-transition: border-color .30s ease-in;
           -moz-transition: border-color .30s ease-in;
         }
+        &.active {
+          border: 2px solid $gray-brown;
+        }
 
       }
     }
@@ -109,17 +123,33 @@ h2 {
 }
 .main {
   position: relative;
+  overflow: hidden;
+
+  .inner {
+    margin-left: 0;
+    width: 600%;
+  }
+  .section {
+    float: left;
+    width: 16.6%;
+  }
+
+
   h2 {
     font-family: 'Tangerine', cursive;
     font-size: 40px;
     margin-bottom: .25em;
   }
   .article {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    magrgin-bottom: 20px;
     border: 15px solid #FFFFFF;
     box-shadow: 1px 2px 6px $light-gray-brown;
     border-radius: 5px;
     background-color: $light-gray;
-    margin: 15px 0 20px 0;
     padding: 10px 20px;
     @include clearfix;
     p {
@@ -136,9 +166,11 @@ h2 {
 
 #footer {
   width: $site-width;
-  margin: 10px auto;
-  padding: 10px;
+  margin: 0 auto;
+  padding: 2px 0;
   span {
+    font-family: 'Tangerine', cursive;
+    font-size: 26px;
     float: right;
   }
 }
