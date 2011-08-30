@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colin and Lauren's Matrimonious Event</title>
+  <link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+      <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/application.js"></script>
+</head>
+<body>
+  <div id="site">
+    <div id="header">
+      <h1>Colin &amp; Lauren: Wedding of the [fucking] Century</h1>
+      <div id="nav">
+        <ul>
+          <li><a class="welcome" href="#welcome">Home</a></li>
+          <li><a class="about-us" href="#about-us">About Us</a></li>
+          <li><a class="our-story" href="#our-story">Our Story</a></li>
+          <li><a class="ceremony-reception" href="#ceremony-reception">Cerenomy &amp; Reception</a></li>
+          <li><a class="travel-info" href="#travel-info">Travel Information</a></li>
+          <li><a class="registry" href="#registry">Registry Information</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="inner">
+        <% stories.each do |story| %>
+          <%= story %>
+        <% end %>
+      </div> <!-- inner -->
+
+    </div> <!-- main -->
+    <!--
+    <div id="footer">
+      <span> Come to our wedding. It'll be off the effing hook.</span>
+    </div>
+    -->
+  </div>
+</body>
+</html>
+
+
+
