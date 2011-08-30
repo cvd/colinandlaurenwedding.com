@@ -3,7 +3,7 @@ use Rack::Static,
   :root => "public"
 
 run lambda { |env|
-  build
+  # build
   [
     200,
     {
