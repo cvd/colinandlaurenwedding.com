@@ -1,6 +1,7 @@
 require 'rake'
 require 'erb'
 
+task :default =>[:build]
 
 desc "make index" 
 task :build do
