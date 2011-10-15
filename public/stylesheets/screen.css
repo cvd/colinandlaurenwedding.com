@@ -252,29 +252,34 @@ strong {
   *zoom: 1;
 }
 /* line 157, ../../sass/screen.scss */
+.main .article div.key {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+/* line 161, ../../sass/screen.scss */
 .main .article p {
   margin: 10px 0;
   padding: 5px;
 }
-/* line 158, ../../sass/screen.scss */
+/* line 162, ../../sass/screen.scss */
 .main .article p img.key-image {
   float: left;
   margin: 0 10px 5px 0;
 }
 
-/* line 168, ../../sass/screen.scss */
+/* line 172, ../../sass/screen.scss */
 .announcement {
   font-size: 18px;
   text-align: center;
 }
 
-/* line 173, ../../sass/screen.scss */
+/* line 177, ../../sass/screen.scss */
 #footer {
   width: 958px;
   margin: 0 auto;
   padding: 2px 0;
 }
-/* line 177, ../../sass/screen.scss */
+/* line 181, ../../sass/screen.scss */
 #footer span {
   font-family: 'Tangerine', cursive;
   font-size: 26px;

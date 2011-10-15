@@ -154,6 +154,10 @@ strong {
     background-color: $light-gray;
     padding: 10px 20px;
     @include clearfix;
+    div.key {
+        float: left;
+        margin: 0 10px 5px 0;
+      }
     p {
       img.key-image {
         float: left;
