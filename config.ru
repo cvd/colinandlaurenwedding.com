@@ -1,3 +1,4 @@
+require 'rack'
 use Rack::Static,
   :urls => ["/stylesheets", "/images", "/javascripts"],
   :root => "public"
