@@ -199,44 +199,29 @@ strong {
 }
 
 /* line 112, ../../sass/screen.scss */
-#header h1 {
-  text-shadow: 0 0 3px #a8998f;
-  -moz-transition: text-shadow .25s linear;
-  -webkit-transition: text-shadow .25s linear;
-  transition: text-shadow .25s linear;
-}
-/* line 117, ../../sass/screen.scss */
-#header h1:hover {
-  text-shadow: 0 2px 4px #a8998f;
-  -moz-transition: text-shadow .25s linear;
-  -webkit-transition: text-shadow .25s linear;
-  transition: text-shadow .25s linear;
-}
-
-/* line 124, ../../sass/screen.scss */
 .main {
   position: relative;
   overflow: hidden;
   padding-bottom: 20px;
 }
-/* line 129, ../../sass/screen.scss */
+/* line 117, ../../sass/screen.scss */
 .main .inner {
   margin-left: 0;
   width: 600%;
 }
-/* line 133, ../../sass/screen.scss */
+/* line 121, ../../sass/screen.scss */
 .main .section {
   float: left;
   width: 16.6%;
   min-height: 508px;
 }
-/* line 140, ../../sass/screen.scss */
+/* line 128, ../../sass/screen.scss */
 .main h2 {
   font-family: 'Tangerine', cursive;
   font-size: 40px;
   margin-bottom: .25em;
 }
-/* line 145, ../../sass/screen.scss */
+/* line 133, ../../sass/screen.scss */
 .main .article {
   width: 960px;
   margin-left: auto;
@@ -251,35 +236,35 @@ strong {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 157, ../../sass/screen.scss */
+/* line 145, ../../sass/screen.scss */
 .main .article div.key {
   float: left;
   margin: 0 10px 5px 0;
 }
-/* line 161, ../../sass/screen.scss */
+/* line 149, ../../sass/screen.scss */
 .main .article p {
   margin: 10px 0;
   padding: 5px;
 }
-/* line 162, ../../sass/screen.scss */
+/* line 150, ../../sass/screen.scss */
 .main .article p img.key-image {
   float: left;
   margin: 0 10px 5px 0;
 }
 
-/* line 172, ../../sass/screen.scss */
+/* line 160, ../../sass/screen.scss */
 .announcement {
   font-size: 18px;
   text-align: center;
 }
 
-/* line 177, ../../sass/screen.scss */
+/* line 165, ../../sass/screen.scss */
 #footer {
   width: 958px;
   margin: 0 auto;
   padding: 2px 0;
 }
-/* line 181, ../../sass/screen.scss */
+/* line 169, ../../sass/screen.scss */
 #footer span {
   font-family: 'Tangerine', cursive;
   font-size: 26px;

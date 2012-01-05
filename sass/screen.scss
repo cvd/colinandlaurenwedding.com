@@ -109,18 +109,6 @@ strong {
   }
 }
 
-#header h1 {
-  text-shadow: 0 0 3px $light-gray-brown;
-  -moz-transition: text-shadow .25s linear;
-  -webkit-transition: text-shadow .25s linear;
-  transition: text-shadow .25s linear;
-  &:hover {
-    text-shadow: 0 2px 4px $light-gray-brown;
-    -moz-transition: text-shadow .25s linear;
-    -webkit-transition: text-shadow .25s linear;
-    transition: text-shadow .25s linear;
-  }
-}
 .main {
   position: relative;
   overflow: hidden;
