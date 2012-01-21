@@ -133,15 +133,16 @@ strong {
   font-size: 55px;
   padding: 4px 10px;
   margin-bottom: 0;
+  text-align: center;
 }
-/* line 78, ../../sass/screen.scss */
+/* line 79, ../../sass/screen.scss */
 #header #nav {
   margin: 0 auto;
   width: 800px;
   padding-top: 10px;
   border-radius: 5px;
 }
-/* line 83, ../../sass/screen.scss */
+/* line 84, ../../sass/screen.scss */
 #header #nav ul {
   margin: 0;
   padding: 0;
@@ -172,7 +173,7 @@ strong {
 #header #nav ul li.last {
   padding-right: 0;
 }
-/* line 85, ../../sass/screen.scss */
+/* line 86, ../../sass/screen.scss */
 #header #nav ul li a {
   color: #6e635c;
   font-weight: bold;
@@ -186,42 +187,42 @@ strong {
   -moz-transition: border-color .30s ease-in;
   -webkit-transition: border-color .30s ease-in;
 }
-/* line 97, ../../sass/screen.scss */
+/* line 98, ../../sass/screen.scss */
 #header #nav ul li a:hover {
   text-decoration: none;
   border-color: #6e635c;
   -webkit-transition: border-color .30s ease-in;
   -moz-transition: border-color .30s ease-in;
 }
-/* line 103, ../../sass/screen.scss */
+/* line 104, ../../sass/screen.scss */
 #header #nav ul li a.active {
   border: 2px solid #6e635c;
 }
 
-/* line 112, ../../sass/screen.scss */
+/* line 113, ../../sass/screen.scss */
 .main {
   position: relative;
   overflow: hidden;
   padding-bottom: 20px;
 }
-/* line 117, ../../sass/screen.scss */
+/* line 118, ../../sass/screen.scss */
 .main .inner {
   margin-left: 0;
   width: 600%;
 }
-/* line 121, ../../sass/screen.scss */
+/* line 122, ../../sass/screen.scss */
 .main .section {
   float: left;
   width: 16.6%;
   min-height: 508px;
 }
-/* line 128, ../../sass/screen.scss */
+/* line 129, ../../sass/screen.scss */
 .main h2 {
   font-family: 'Tangerine', cursive;
   font-size: 40px;
   margin-bottom: .25em;
 }
-/* line 133, ../../sass/screen.scss */
+/* line 134, ../../sass/screen.scss */
 .main .article {
   width: 960px;
   margin-left: auto;
@@ -236,35 +237,35 @@ strong {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 145, ../../sass/screen.scss */
+/* line 146, ../../sass/screen.scss */
 .main .article div.key {
   float: left;
   margin: 0 10px 5px 0;
 }
-/* line 149, ../../sass/screen.scss */
+/* line 150, ../../sass/screen.scss */
 .main .article p {
   margin: 10px 0;
   padding: 5px;
 }
-/* line 150, ../../sass/screen.scss */
+/* line 151, ../../sass/screen.scss */
 .main .article p img.key-image {
   float: left;
   margin: 0 10px 5px 0;
 }
 
-/* line 160, ../../sass/screen.scss */
+/* line 161, ../../sass/screen.scss */
 .announcement {
   font-size: 18px;
   text-align: center;
 }
 
-/* line 165, ../../sass/screen.scss */
+/* line 166, ../../sass/screen.scss */
 #footer {
   width: 958px;
   margin: 0 auto;
   padding: 2px 0;
 }
-/* line 169, ../../sass/screen.scss */
+/* line 170, ../../sass/screen.scss */
 #footer span {
   font-family: 'Tangerine', cursive;
   font-size: 26px;
