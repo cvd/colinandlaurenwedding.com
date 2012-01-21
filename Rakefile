@@ -3,8 +3,14 @@ require 'erb'
 
 task :default =>[:build]
 
+desc "Compile the assets!"
+task :compile do
+  %x[compass compile]
+end
+
 desc "make index" 
 task :build do
+  Rake::Task['compile'].execute
   stories = []
   layout = File.read("layout.html.erb")
   pages = ["welcome", "about-us", "our-story", "ceremony-reception", "travel-info", "registry"]
