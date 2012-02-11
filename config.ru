@@ -1,4 +1,4 @@
-require './app/app.rb'
+require './app.rb'
 
 run Wed.new
 

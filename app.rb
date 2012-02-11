@@ -5,12 +5,14 @@ class Wed < Sinatra::Base
     enable :logging
   end
 
+  set :public_folder, File.join(File.dirname(__FILE__), "public")
+
   get "/" do
     puts settings.public_folder
     status 200
     headers 'Content-Type'  => 'text/html',
       'Cache-Control' => 'public, max-age=86400'
-    body File.open('index.html', File::RDONLY)
+    body File.open(File.join(settings.public_folder, 'index.html'), File::RDONLY)
   end
 
   get "receive_email" do
