@@ -6,6 +6,7 @@ class Wed < Sinatra::Base
   end
 
   get "/" do
+    puts settings.public_folder
     status 200
     headers 'Content-Type'  => 'text/html',
       'Cache-Control' => 'public, max-age=86400'
