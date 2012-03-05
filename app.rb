@@ -25,4 +25,9 @@ class Wed < Sinatra::Base
     puts params.inspect
   end
 
+  get "*" do
+    puts "Catchall"
+    puts params
+  end
+
 end
