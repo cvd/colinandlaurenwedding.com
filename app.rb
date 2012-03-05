@@ -15,8 +15,13 @@ class Wed < Sinatra::Base
     body File.open(File.join(settings.public_folder, 'index.html'), File::RDONLY)
   end
 
+  post "/receive_email" do
+    puts "incoming email!!!"
+    puts params.inspect
+  end
+
   get "/receive_email" do
-    puts "INCOMING EMAIL!!!"
+    puts "incoming email!!!"
     puts params.inspect
   end
 
