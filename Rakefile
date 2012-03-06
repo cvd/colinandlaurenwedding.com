@@ -5,17 +5,17 @@ task :default =>[:build]
 
 desc "Compile the assets!"
 task :compile do
-  %x[compass compile]
+  puts %x[compass compile --sass-dir lib/asssets/stylesheets/ --css-dir public/stylesheets --images-dir public/images/ ]
 end
 
 desc "make index" 
 task :build do
   Rake::Task['compile'].execute
   stories = []
-  layout = File.read("layout.html.erb")
+  layout = File.read("lib/views/layout.html.erb")
   pages = ["welcome", "about-us", "our-story", "ceremony-reception", "travel-info", "registry"]
   pages.each do |page|
-    article = File.read("content/#{page}.html")
+    article = File.read("lib/views/content/#{page}.html")
     
     id = page
     template = ERB.new(article)
