@@ -21,6 +21,7 @@ class Wed < Sinatra::Base
   post "/receive_email" do
     puts "incoming email!!!"
     puts params.inspect
+    puts params.to_yaml
   end
 
   get "/receive_email" do
