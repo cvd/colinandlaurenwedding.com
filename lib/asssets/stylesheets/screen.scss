@@ -78,12 +78,12 @@ strong {
   }
   #nav {
     margin: 0 auto;
-    width: 830px;
+    width: 810px;
     padding-top: 10px;
     border-radius: 5px;
     ul {
       @include horizontal-list;
-      padding: 10px;
+      padding: 5px;
       li a {
         color: $gray-brown;
         font-weight: bold;
@@ -94,7 +94,6 @@ strong {
         background-color: $light-gray;
         margin-right: 10px;
         text-shadow: 0 1px 2px $light-gray-brown;
-        box-shadow: 0 2px 8px #86B5AF;
         -moz-transition: border-color .30s ease-in;
         -webkit-transition: border-color .30s ease-in;
         &:hover {
