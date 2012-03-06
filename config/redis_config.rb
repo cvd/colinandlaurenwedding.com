@@ -3,7 +3,7 @@ env = ENV.fetch("RACK_ENV")
 
 case env
 when "production"
-  uri = ENV.fetch("REDIS_TO_GO_URL")
+  uri = ENV.fetch("REDISTOGO_URL")
   uri = URI.parse(uri)
   $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 when "development"
