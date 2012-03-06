@@ -5,7 +5,7 @@ task :default =>[:build]
 
 desc "Compile the assets!"
 task :compile do
-  puts %x[compass compile --sass-dir lib/asssets/stylesheets/ --css-dir public/stylesheets --images-dir public/images/ ]
+  puts %x[compass compile --sass-dir lib/asssets/stylesheets/ --css-dir lib/public/stylesheets --images-dir lib/public/images/ ]
 end
 
 desc "make index" 
