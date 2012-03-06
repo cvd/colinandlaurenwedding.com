@@ -8,7 +8,7 @@ class Wed < Sinatra::Base
     require_relative "../config/redis_config"
   end
 
-  set :public_folder, File.join(File.dirname(__FILE__), "public")
+  set :public_folder, File.join("..", File.dirname(__FILE__), "public")
 
   get "/" do
     puts settings.public_folder
