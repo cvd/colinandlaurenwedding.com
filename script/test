@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# -ne 0 ]; then
+  rspec -f doc $1
+else
+  rspec spec
+fi
+
