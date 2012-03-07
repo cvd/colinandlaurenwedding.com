@@ -2,7 +2,7 @@ require 'bundler/setup'
 require 'redis'
 require 'sinatra'
 
-class Wed < Sinatra::Base
+class Wedding < Sinatra::Base
   configure do
     enable :logging
     require_relative "../config/redis_config"
