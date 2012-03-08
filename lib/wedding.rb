@@ -1,11 +1,12 @@
 require 'bundler/setup'
+require 'active_support/all'
 require 'redis'
 require 'sinatra'
 
 class Wedding < Sinatra::Base
   configure do
     enable :logging
-    require_relative "../config/redis_config"
+    #require_relative "../config/redis_config"
   end
 
   set :public_folder, File.join(File.dirname(__FILE__), "public")
@@ -27,11 +28,6 @@ class Wedding < Sinatra::Base
   get "/receive_email" do
     puts "incoming email!!!"
     puts params.inspect
-  end
-
-  get "/redis" do
-    $redis.set("foo", "Bar")
-    return $redis.get "foo"
   end
 
   get "*" do

@@ -52,6 +52,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   adapter-redis
   compass
   rack-test
