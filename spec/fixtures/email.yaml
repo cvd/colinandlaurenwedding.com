@@ -1,0 +1,41 @@
+---
+headers: |
+  Received: by 127.0.0.1 with SMTP id 6mJSI8iZOp Mon, 05 Mar 2012 21:15:24 -0600 (CST)
+  Received: from mail-ww0-f44.google.com (mail-ww0-f44.google.com [74.125.82.44]) by mx3.sendgrid.net (Postfix) with ESMTPS id 35DE6157E01C for <awesome@colinandlauren.us>; Mon,  5 Mar 2012 21:08:47 -0600 (CST)
+  Received: by wgbdr13 with SMTP id dr13so2868321wgb.13 for <awesome@colinandlauren.us>; Mon, 05 Mar 2012 19:08:46 -0800 (PST)
+  DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113; h=mime-version:from:date:message-id:subject:to:content-type; bh=6DtX1GADO/FioaP6iTMpC9ADyJhMw2p+Kzf8+wMU0OY=; b=qeFmL5UeirBIiquKTkc6ae7Oq/rGDCogjka4h+jUwPEU2RSZz/vClql3ijIn2p3pi3 jeFarmPaMAh/wNGG78oY/0GbUEtaittyyxpfNeCTo1gpkEHw/T5E3atGjc//brlEMJSA FSHNyCBRTDyk6f3HWw1lidfBjrleSBFtYWmBLFei08fWnBEa8/UJxu+KcD1k+QbOFB6h HfTMQ1jk9be2+D4DB6jLqM2cltHgP4qTXbb/mj/i6DkOEx3YenYIbnxoU9by8gAu+0qh OXvAJV8bV+w9zp14A8Hf+XFZbG0MXtg/PFJK2D1IhN9aQnjDRo2gN02/x4es+Mtnm8UG iaCw==
+  Received: by 10.180.76.175 with SMTP id l15mr15840626wiw.2.1331003325869; Mon, 05 Mar 2012 19:08:45 -0800 (PST)
+  MIME-Version: 1.0
+  Received: by 10.216.217.17 with HTTP; Mon, 5 Mar 2012 19:08:25 -0800 (PST)
+  From: Colin Van Dyke <vandyke.colin@gmail.com>
+  Date: Mon, 5 Mar 2012 22:08:25 -0500
+  Message-ID: <CANU3jeCqUuK1UVP-sKa8uQ9QLY0oDopQ5U_71=rvmWCx4v526Q@mail.gmail.com>
+  Subject: test email
+  To: awesome@colinandlauren.us
+  Content-Type: multipart/mixed; boundary=f46d043891bf6eed0804ba8a5cc4
+
+attachments: "1"
+dkim: "{@gmail.com : fail (body has been altered)}"
+subject: test email
+to: awesome@colinandlauren.us
+attachment-info: "{\"attachment1\":{\"filename\":\"fugu.png\",\"name\":\"fugu.png\",\"type\":\"image/png\"}}"
+html: |
+  Here is Fugu!
+
+from: Colin Van Dyke <vandyke.colin@gmail.com>
+text: |
+  Here is Fugu!
+
+attachment1: 
+  :filename: fugu.png
+  :type: image/png
+  :name: attachment1
+  :tempfile: file
+
+  :head: |
+    Content-Disposition: form-data; name="attachment1"; filename="fugu.png"
+    Content-Type: image/png
+
+envelope: "{\"to\":[\"awesome@colinandlauren.us\"],\"from\":\"vandyke.colin@gmail.com\"}"
+charsets: "{\"to\":\"UTF-8\",\"html\":\"ISO-8859-1\",\"subject\":\"UTF-8\",\"from\":\"UTF-8\",\"text\":\"ISO-8859-1\"}"
+SPF: pass
