@@ -19,6 +19,7 @@ class Photo
   attribute :title, String
   attribute :description, String
   attribute :image_url, String
+  attribute :thumbnail_url, String
   attribute :user_email, String
   attribute :user_name, String
   timestamps
