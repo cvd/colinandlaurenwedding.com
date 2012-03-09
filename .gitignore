@@ -3,3 +3,4 @@ tmp/
 .DS_Store
 psd/
 todo.txt
+.powenv
