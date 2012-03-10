@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative '../../lib/models/photo'
 
 describe Photo do
 

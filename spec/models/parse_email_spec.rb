@@ -1,8 +1,4 @@
 require 'spec_helper'
-require_relative "../../lib/models/parse_email"
-require_relative "../../lib/models/attachment"
-
-S3Uploader = Class.new
 
 describe ParseEmail do
 

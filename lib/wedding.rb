@@ -4,6 +4,10 @@ require 'redis'
 require 'sinatra'
 require 'uuidtools'
 require 'tempfile'
+require_relative "./models/photo"
+require_relative "./models/attachment"
+require_relative "./models/parse_email"
+require_relative "./models/s3_uploader"
 
 class Wedding < Sinatra::Base
   configure do

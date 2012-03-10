@@ -1,8 +1,4 @@
-require_relative "../../lib/models/attachment"
-require 'tempfile'
-require_relative "../../lib/models/s3_uploader"
-require_relative "../../lib/models/photo"
-
+require 'spec_helper'
 
 describe Attachment do
 
