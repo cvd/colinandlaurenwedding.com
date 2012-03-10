@@ -33,6 +33,7 @@ class ParseEmail
     @attachments ||= begin
       hash = JSON.parse(@params["attachment-info"])
       hash.map do |file_key, values|
+        values = HashWithIndifferentAccess.new(values)
         file_values = HashWithIndifferentAccess.new(@params[file_key])
         values[:file] = file_values["tempfile"]
         values[:user_name] = from_name
@@ -40,8 +41,7 @@ class ParseEmail
         values[:title] = title
         values[:description] = description
         values[:old_filename] = values[:filename]
-        values[:filename] = gen_filename(values["filename"])
-        values = HashWithIndifferentAccess.new(values)
+        values[:filename] = gen_filename(values[:filename])
         Attachment.new(values)
       end
     end
