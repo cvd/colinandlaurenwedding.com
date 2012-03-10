@@ -37,6 +37,7 @@ class S3Uploader
         update_bucket!
         @file = @bucket[@file_basename] #return the file
       else
+        puts "NO BUCKET???"
         false
       end
     end

@@ -16,10 +16,14 @@ class Attachment
 
   def create_s3_file!
     @s3_file = S3Uploader.store_file("colinandlauren", @file, @filename, @metadata)
-    @s3_url = @s3_file.url(:authenticated => false)
+    if @s3_file
+      @s3_url = @s3_file.url(:authenticated => false)
+    else
+      puts "Why didn't you upload?"
   end
 
   def create_photo!
+    return false unless s3_url
     photo = Photo.create({
       :title        => title,
       :description  => description,
