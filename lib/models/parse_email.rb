@@ -57,7 +57,7 @@ class ParseEmail
   protected
 
   def gen_filename(filename)
-    "#{uuid}#{File.extname(filename)}"
+    "#{uuid}#{File.extname(filename)}".gsub("-", "_")
   end
 
   def uuid
