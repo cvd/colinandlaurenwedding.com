@@ -35,6 +35,7 @@ class ParseEmail
       hash.map do |file_key, values|
         values = HashWithIndifferentAccess.new(values)
         file_values = HashWithIndifferentAccess.new(@params[file_key])
+        next unless values.has_key?(:filename)
         values[:file] = file_values["tempfile"]
         values[:user_name] = from_name
         values[:user_email] = from_email
