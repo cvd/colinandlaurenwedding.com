@@ -6,7 +6,7 @@ class Attachment
   def initialize(params)
     @filename = params[:filename]
     @content_type = params[:type]
-    @file = params[:tempfile]
+    @file = params[:file]
     @title = params[:title]
     @description = params[:description]
     @user_name = params[:user_name]

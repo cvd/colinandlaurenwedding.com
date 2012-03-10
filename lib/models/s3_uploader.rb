@@ -30,6 +30,21 @@ class S3Uploader
   def store_file(file, file_name, metadata={})
     puts file.inspect
     puts file_name
+    AWS::S3::Base.establish_connection!(
+      :access_key_id => ENV.fetch('AMAZON_ACCESS_KEY_ID'),
+      :secret_access_key => ENV.fetch('AMAZON_SECRET_ACCESS_KEY'))
+
+    bucket_name = ENV.fetch('S3_PHOTOS_BUCKET')
+
+    AWS::S3::S3Object.store(
+      file_name,
+      file,
+      bucket_name,
+      metadata
+    )
+
+    @file = AWS::S3::S3Object.find(file_name, bucket_name)
+
     if @bucket
       @file_name = file_name
       @file_basename = File.basename(@file_name)

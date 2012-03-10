@@ -9,12 +9,14 @@ describe ParseEmail do
     img = File.join(File.dirname(__FILE__), "..", "fixtures", "fugu.png")
     @tmpfile = Tempfile.new("email")
     @tmpfile.write File.read(img)
-    @params['attachment1']['tempfile'] = @templfile
+    @params['attachment1']['tempfile'] = @tmpfile
   end
 
   it "parses email messages for attachments" do
     email = ParseEmail.new(@params)
     email.attachments.first.should be_a(Attachment)
+    email.attachments.first.file.should_not be_nil
+    email.attachments.first.file.should == @tmpfile
   end
 
   it "knows the name of the sender" do
