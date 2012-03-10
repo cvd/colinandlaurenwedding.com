@@ -30,39 +30,32 @@ class ParseEmail
 
   #{:filename=>"fugu.png", :type=>"image/png", :name=>"attachment1", :tempfile=>"file", :head=>"Content-Disposition: form-data; name=\"attachment1\"; filename=\"fugu.png\"\nContent-Type: image/png\n", "tempfile"=>nil}
   def attachments
-    hash = JSON.parse(@params["attachment-info"])
-    hash.map do |file_key, values|
-      values[:file] = @params[file_key]
-      HashWithIndifferentAccess.new(values)
+    @attachments ||= begin
+      hash = JSON.parse(@params["attachment-info"])
+      hash.map do |file_key, values|
+        values[:file] = @params[file_key]
+        values[:user_name] = from_name
+        values[:user_email] = from_email
+        values[:title] = title
+        values[:description] = description
+        values[:filename] = gen_filename(values["filename"])
+        values = HashWithIndifferentAccess.new(values)
+        Attachment.new(values)
+      end
     end
-  end
-
-  def attachment_keys
-    attachments.keys
   end
 
   def create_files
     attachments.each do |attachment|
-      metadata = {
-        :content_type => attachment[:type],
-        :cache_control => "max-age=2592000"
-      }
-      S3Uploader.store_file("colinandlauren", attachment.tempfile, file_name, metadata)
-      photo = Photo.create({
-        :title => title,
-        :description => description,
-        :image_url => s3_image.url,
-        :user_email => from_email,
-        :user_name => from_name
-      })
-
+      attachment.create_s3_file!
+      attachment.create_photo!
     end
   end
 
   protected
 
-  def file_name
-    "#{uuid}.#{File.extname(attachment[:filename])}"
+  def gen_filename(filename)
+    "#{uuid}.#{File.extname(filename)}"
   end
 
   def uuid
