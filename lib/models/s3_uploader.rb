@@ -28,6 +28,8 @@ class S3Uploader
   end
 
   def store_file(file, file_name, metadata={})
+    puts file.inspect
+    puts file_name
     if @bucket
       @file_name = file_name
       @file_basename = File.basename(@file_name)
