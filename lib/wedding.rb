@@ -27,6 +27,8 @@ class Wedding < Sinatra::Base
 
   post "/receive_email" do
     begin
+      puts "receiving photos!"
+      puts params.inspect
       email = ParseEmail.new(params)
       email.create_files
       return 200
