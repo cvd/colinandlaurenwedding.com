@@ -13,7 +13,13 @@ end
 
 class Photo
   include Toy::Store
-  store :redis, Redis.new(:db => 3)
+  if ENV["RACK_ENV"] == "production"
+    uri = URI.parse(ENV["REDISTOGO_URL"])
+    redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+    store :redis, redis
+  else
+    store :redis, Redis.new(:db => 3)
+  end
   key NamespacedUUIDKeyFactory.new
 
   attribute :title, String
