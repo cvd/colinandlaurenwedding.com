@@ -69,4 +69,10 @@ class Photo
     store.client.zrange("photos", 0, -1)
   end
 
+  def self.create(params)
+    photo = new(params)
+    photo.save
+    photo
+  end
+
 end
