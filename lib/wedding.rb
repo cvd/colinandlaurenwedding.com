@@ -4,6 +4,7 @@ require 'redis'
 require 'sinatra'
 require 'uuidtools'
 require 'tempfile'
+require 'aws/s3'
 require_relative "./models/photo"
 require_relative "./models/attachment"
 require_relative "./models/parse_email"
