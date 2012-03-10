@@ -27,15 +27,15 @@ class S3Uploader
     end
   end
 
-  def store_file(file, file_name, metadata)
+  def store_file(file, file_name, metadata={})
     if @bucket
       @file_name = file_name
       @file_basename = File.basename(@file_name)
-      metadata = metadata
+      metadata.merge!(:access => :public_read)
       if file
-        @file = AWS::S3::S3Object.store(@file_basename, file, @bucket.name, metadata)
+        @result = AWS::S3::S3Object.store(@file_basename, file, @bucket.name, metadata)
         update_bucket!
-        true
+        @file = @bucket[@file_basename] #return the file
       else
         false
       end
