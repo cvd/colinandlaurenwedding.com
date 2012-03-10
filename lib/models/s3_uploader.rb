@@ -44,7 +44,7 @@ class S3Uploader
 
   def self.store_file(bucket, file, file_name, meta)
     uploader = new(bucket)
-    uploader.store_file(file)
+    uploader.store_file(file, file_name, meta)
   end
 
   def update_bucket!
