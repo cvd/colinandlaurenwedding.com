@@ -57,7 +57,7 @@ class ParseEmail
   end
 
   def valid_file?(attachment)
-    return false if attachment.extname.downcase.in?(["png", "jpg", "tiff"])
+    return false unless attachment.extname.downcase.in?(["png", "jpg", "tiff"])
     return false if restricted_filenames.any? {|f| attachment.old_filename =~ f }
     return true
   end

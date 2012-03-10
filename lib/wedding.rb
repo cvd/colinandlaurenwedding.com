@@ -19,7 +19,6 @@ class Wedding < Sinatra::Base
   set :public_folder, File.join(File.dirname(__FILE__), "public")
 
   get "/" do
-    puts settings.public_folder
     status 200
     headers 'Content-Type'  => 'text/html',
       'Cache-Control' => 'public, max-age=86400'
@@ -36,11 +35,6 @@ class Wedding < Sinatra::Base
       puts $!.backtrace[0..5].join("\n")
       return 500
     end
-  end
-
-  get "*" do
-    puts "Catchall"
-    puts params
   end
 
 end
