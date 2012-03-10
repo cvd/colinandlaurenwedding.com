@@ -15,7 +15,7 @@ class Attachment
   end
 
   def create_s3_file!
-    @s3_file = S3Uploader.store_file("colinandlauren", @file, @filename, @metadata)
+    @s3_file = S3Uploader.store_file(@file, @filename, @metadata)
     if @s3_file
       @s3_url = @s3_file.url(:authenticated => false)
     else

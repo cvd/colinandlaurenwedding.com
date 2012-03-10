@@ -7,7 +7,7 @@ describe Attachment do
      :filename    => "fugu.png",
      :type        => "image/png",
      :name        => "attachment1",
-     :tempfile    => file,
+     :file        => file,
      :description => "Awesome Photo",
      :title       => "Title",
      :user_name   => "Colin Van Dyke",
@@ -19,6 +19,7 @@ describe Attachment do
     img = File.join(File.dirname(__FILE__), "..", "fixtures", "fugu.png")
     @tmpfile = Tempfile.new("email")
     @tmpfile.write File.read(img)
+    @tempfile
   }
 
 
@@ -35,7 +36,7 @@ describe Attachment do
 
   it "creates s3 files" do
     attachment = Attachment.new(attachment_params)
-    S3Uploader.should_receive(:store_file).with("colinandlauren", attachment.file, attachment.filename, attachment.metadata) { stub(:file, :url => "http://s3.amazon.com/colinandlauren/fugu.png")}
+    S3Uploader.should_receive(:store_file).with(attachment.file, attachment.filename, attachment.metadata) { stub(:file, :url => "http://s3.amazon.com/colinandlauren/fugu.png")}
     attachment.create_s3_file!
   end
 
