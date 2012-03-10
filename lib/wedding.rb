@@ -30,6 +30,7 @@ class Wedding < Sinatra::Base
     begin
       email = ParseEmail.new(params)
       email.create_files
+      return 200
     rescue
       puts $!.inspect
       puts $!.backtrace[0..5].join("\n")
