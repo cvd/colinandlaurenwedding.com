@@ -41,6 +41,7 @@ class ParseEmail
         values[:title] = title
         values[:description] = description
         values[:old_filename] = values[:filename]
+        puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
         Attachment.new(values)
       end
