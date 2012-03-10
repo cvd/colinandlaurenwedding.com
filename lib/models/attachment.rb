@@ -20,6 +20,7 @@ class Attachment
       @s3_url = @s3_file.url(:authenticated => false)
     else
       puts "Why didn't you upload?"
+    end
   end
 
   def create_photo!
