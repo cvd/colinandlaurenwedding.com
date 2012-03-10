@@ -2,6 +2,8 @@ require 'bundler/setup'
 require 'active_support/all'
 require 'redis'
 require 'sinatra'
+require 'uuidtools'
+require 'tempfile'
 
 class Wedding < Sinatra::Base
   configure do
