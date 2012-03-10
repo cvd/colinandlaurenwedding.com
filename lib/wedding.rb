@@ -31,7 +31,7 @@ class Wedding < Sinatra::Base
       email.create_files
     rescue
       puts $!.inspect
-      puts $!.backtrace[0..5]kjoin("\n")
+      puts $!.backtrace[0..5].join("\n")
       return 500
     end
   end
