@@ -39,6 +39,7 @@ class ParseEmail
         values[:user_email] = from_email
         values[:title] = title
         values[:description] = description
+        values[:old_filename] = values[:filename]
         values[:filename] = gen_filename(values["filename"])
         values = HashWithIndifferentAccess.new(values)
         Attachment.new(values)
@@ -49,15 +50,27 @@ class ParseEmail
   def create_files
     attachments.each do |attachment|
       puts "Attachment: #{attachment.inspect}"
+      next unless valid_file?(attachment)
       attachment.create_s3_file!
       attachment.create_photo!
     end
   end
 
+  def valid_file?(attachment)
+    return false if attachment.extname.downcase.in?(["png", "jpg", "tiff"])
+    return false if restricted_filenames.any? {|f| attachment.old_filename =~ f }
+    return true
+  end
+
   protected
 
+  def restricted_filenames
+    [/image001.png/i, /logo/i, /everfii/]
+  end
+
+
   def gen_filename(filename)
-    "#{uuid}#{File.extname(filename)}".gsub("-", "_")
+    "#{uuid}#{File.extname(filename).downcase}".gsub("-", "_")
   end
 
   def uuid
