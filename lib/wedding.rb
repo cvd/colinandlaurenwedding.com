@@ -26,14 +26,14 @@ class Wedding < Sinatra::Base
   end
 
   post "/receive_email" do
-    puts "incoming email!!!"
-    puts params.inspect
-    puts params.to_yaml
-  end
-
-  get "/receive_email" do
-    puts "incoming email!!!"
-    puts params.inspect
+    begin
+      email = ParseEmail.new(params)
+      email.create_files
+    rescue
+      puts $!.inspect
+      puts $!.backtrace[0..5]kjoin("\n")
+      return 500
+    end
   end
 
   get "*" do
