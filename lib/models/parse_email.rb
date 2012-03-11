@@ -45,7 +45,7 @@ class ParseEmail
         puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
         Attachment.new(values)
-      end
+      end.compact
     end
   end
 
