@@ -51,8 +51,8 @@ class ParseEmail
 
   def create_files
     attachments.each do |attachment|
-      puts "Attachment: #{attachment.inspect}"
       next unless valid_file?(attachment)
+      puts "Attachment: #{attachment.inspect}"
       attachment.create_s3_file!
       attachment.create_photo!
     end
