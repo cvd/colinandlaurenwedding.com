@@ -67,4 +67,10 @@ describe ParseEmail do
     email = ParseEmail.new(@params)
     email.attachments.first.description.should == "Here is Fugu!"
   end
+
+  it "should reject files that aren't images" do
+    @params['attachment1']['filename'] = "awesome.txt"
+    email = ParseEmail.new(@params)
+    email.attachments.should be_empty
+  end
 end

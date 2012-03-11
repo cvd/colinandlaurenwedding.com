@@ -35,14 +35,15 @@ class ParseEmail
       hash.map do |file_key, values|
         values = HashWithIndifferentAccess.new(values)
         file_values = HashWithIndifferentAccess.new(@params[file_key])
-        next unless values.has_key?(:filename)
+        next unless file_values.has_key?(:filename)
+        next unless valid_file?(file_values[:filename])
         values[:file] = file_values["tempfile"]
         values[:user_name] = from_name
         values[:user_email] = from_email
         values[:title] = title
         values[:description] = description
         values[:old_filename] = values[:filename]
-        puts "Values: #{values.inspect}"
+        #puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
         Attachment.new(values)
       end.compact
@@ -51,16 +52,16 @@ class ParseEmail
 
   def create_files
     attachments.each do |attachment|
-      next unless valid_file?(attachment)
       puts "Attachment: #{attachment.inspect}"
       attachment.create_s3_file!
       attachment.create_photo!
     end
   end
 
-  def valid_file?(attachment)
-    return false unless attachment.extname.downcase.in?(["png", "jpg", "tiff"])
-    return false if restricted_filenames.any? {|f| attachment.old_filename =~ f }
+  def valid_file?(filename)
+    ext = File.extname(filename).downcase
+    return false unless ext.in?([".png", ".jpg", ".tiff", ".jpeg"])
+    return false if restricted_filenames.any? {|f| filename =~ f }
     return true
   end
 
