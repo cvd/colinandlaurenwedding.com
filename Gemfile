@@ -8,6 +8,8 @@ gem 'toystore'
 gem 'activesupport'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'uuidtools'
+gem 'exifr'
+gem 'rmagick'
 
 group :test do
   gem 'rspec'

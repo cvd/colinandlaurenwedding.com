@@ -38,31 +38,19 @@ class Attachment
   end
 
   def right_image!
-    if jpg?
-      case exif_data.orientation.to_i
-      # up is pointing to the right
-      when 8
-        rotate(270)
-      # up is pointing to the bottom (image is upside-down)
-      when 3
-        rotate(180)
-      # up is pointing to the left
-      when 6
-        rotate(90)
-      end
-    end
-  end
-
-  def rotate(degrees)
     @file.rewind
-    image = Image.from_blob(@file.read)
-    image.rotate(degrees)
-    @file = Tempfile.new(@filename).write(image.to_blob)
+    ilist = Magick::ImageList.new
+    ilist.from_blob(@file.read)
+    ilist.auto_orient!
+    @file = Tempfile.new(@filename)
+    @file.write(ilist.to_blob)
+    @file
   end
 
   def exif_data
     if jpg?
       f = @file.dup
+      f.rewind
       EXIFR::JPEG.new( StringIO.new(f.read) )
     end
   end
