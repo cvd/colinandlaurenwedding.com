@@ -1,7 +1,8 @@
 class Attachment
 
   attr_reader :filename, :content_type, :file, :metadata, :user_name,
-    :user_email, :description, :title, :s3_url, :old_filename, :extname
+    :user_email, :description, :title, :s3_url, :old_filename, :extname,
+    :thumbnail, :s3_thumbnail_url
 
   def initialize(params)
     @filename = params[:filename]
@@ -29,11 +30,12 @@ class Attachment
   def create_photo!
     return false unless s3_url
     photo = Photo.create({
-      :title        => title,
-      :description  => description,
-      :image_url    => s3_url,
-      :user_email   => user_email,
-      :user_name    => user_name
+      :title         => title,
+      :description   => description,
+      :image_url     => s3_url,
+      :user_email    => user_email,
+      :user_name     => user_name,
+      :thumbnail_url => s3_thumbnail_url
     })
   end
 
@@ -45,6 +47,26 @@ class Attachment
     @file = Tempfile.new(@filename)
     @file.write(ilist.to_blob)
     @file
+  end
+
+  def create_thumbnail!
+    @file.rewind
+    ilist = Magick::ImageList.new
+    ilist.from_blob(@file.read)
+    ilist.crop_resized!(75, 75, Magick::NorthGravity)
+    f = Tempfile.new(@filename)
+    f.write(ilist.to_blob)
+    f
+  end
+
+  def create_s3_thumb!
+    @thumbnail = create_thumbnail!
+    @s3_thumbnail = S3Uploader.store_file(@thumbnail, "thumbails/#{@filename}", @metadata)
+    if @s3_thumbnail
+      @s3_thumbnail_url = @s3_thumbnail.url(:authenticated => false)
+    else
+      puts "Why didn't you upload?"
+    end
   end
 
   def exif_data
