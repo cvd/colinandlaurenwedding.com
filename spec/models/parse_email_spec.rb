@@ -3,6 +3,9 @@ require 'spec_helper'
 describe ParseEmail do
 
   before do
+    ENV["AMAZON_ACCESS_KEY_ID"] = "1234"
+    ENV["AMAZON_SECRET_ACCESS_KEY"] = "1234"
+    ENV["S3_PHOTOS_BUCKET"] = "colinandlauren"
     e = File.join(File.dirname(__FILE__), "..", "fixtures", "email.yaml")
     @params = YAML.load(File.read(e))
 
@@ -45,7 +48,7 @@ describe ParseEmail do
   it "tells the attachments to upload" do
     email = ParseEmail.new(@params)
     a = email.attachments.first
-    a.stub(:create_s3_file! => true, :create_photo! => true)
+    a.stub(:create_s3_file! => true, :create_photo! => true, :create_s3_thumb! => true)
     a.should_receive(:create_s3_file!).and_return(true)
     email.create_files
   end
@@ -53,7 +56,7 @@ describe ParseEmail do
   it "should create a new photo record for each attachment" do
     email = ParseEmail.new(@params)
     a = email.attachments.first
-    a.stub(:create_s3_file! => true, :create_photo! => true)
+    a.stub(:create_s3_file! => true, :create_photo! => true, :create_s3_thumb! => true)
     a.should_receive(:create_photo!).and_return(true)
     email.create_files
   end

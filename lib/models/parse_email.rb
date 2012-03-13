@@ -54,6 +54,7 @@ class ParseEmail
     attachments.each do |attachment|
       puts "Attachment: #{attachment.inspect}"
       attachment.create_s3_file!
+      attachment.create_s3_thumb!
       attachment.create_photo!
     end
   end
