@@ -7,13 +7,12 @@ class S3Uploader
       :secret_access_key => ENV.fetch('AMAZON_SECRET_ACCESS_KEY')
     )
 
-    file_basename = File.basename(file_name)
-    puts file_basename
+    puts file_name
     bucket_name = ENV.fetch('S3_PHOTOS_BUCKET')
     metadata.merge!(:access => :public_read)
 
     AWS::S3::S3Object.store(
-      file_basename,
+      file_name,
       file,
       bucket_name,
       metadata
