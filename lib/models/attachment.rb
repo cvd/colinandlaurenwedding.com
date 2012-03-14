@@ -54,7 +54,7 @@ class Attachment
     ilist = Magick::ImageList.new
     ilist.from_blob(@file.read)
     ilist.crop_resized!(75, 75, Magick::NorthGravity)
-    f = Tempfile.new("thumbnails/#{@filename}")
+    f = Tempfile.new("thumbnails-#{@filename}")
     f.write(ilist.to_blob)
     f
   end
