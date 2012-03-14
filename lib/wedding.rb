@@ -28,17 +28,18 @@ class Wedding < Sinatra::Base
   end
 
   post "/receive_email" do
-    begin
-      puts "receiving photos!"
-      puts params.inspect
-      email = ParseEmail.new(params)
-      email.create_files
-      return 200
-    rescue
-      puts $!.inspect
-      puts $!.backtrace[0..5].join("\n")
-      return 500
-    end
+   # begin
+   #   puts "receiving photos!"
+   #   puts params.inspect
+   #   email = ParseEmail.new(params)
+   #   email.create_files
+   #   return 200
+   # rescue
+   #   puts $!.inspect
+   #   puts $!.backtrace[0..5].join("\n")
+   #   return 500
+   # end
+   200
   end
 
 end
