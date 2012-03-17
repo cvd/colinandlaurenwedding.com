@@ -5,6 +5,7 @@ class Attachment
     :thumbnail, :s3_thumbnail_url
 
   def initialize(params)
+    params = HashWithIndifferentAccess.new(params)
     @filename = params[:filename]
     @extname = File.extname(params[:filename])
     @content_type = params[:type]
@@ -54,19 +55,20 @@ class Attachment
     ilist = Magick::ImageList.new
     ilist.from_blob(@file.read)
     ilist.crop_resized!(75, 75, Magick::NorthGravity)
-    f = Tempfile.new("thumbnails-#{@filename}")
-    f.write(ilist.to_blob)
-    f
+    @thumbnail = Tempfile.new("thumbnails-#{@filename}")
+    @thumbnail.write(ilist.to_blob)
+    @file.rewind
+    @thumbnail.rewind
+    @thumbnail
   end
 
   def create_s3_thumb!
-    @thumbnail = create_thumbnail!
-    puts "Thumbnail: #{@thumbnail.inspect}"
+    create_thumbnail!
     @s3_thumbnail = S3Uploader.store_file(@thumbnail, "thumbnails/#{@filename}", @metadata)
     if @s3_thumbnail
       @s3_thumbnail_url = @s3_thumbnail.url(:authenticated => false)
     else
-      puts "Why didn't you upload?"
+      puts "Why didn't you upload thumbnail?"
     end
   end
 
