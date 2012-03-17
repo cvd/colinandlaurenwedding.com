@@ -7,6 +7,7 @@ require 'tempfile'
 require 'aws/s3'
 require 'exifr'
 require 'RMagick'
+
 require_relative "./models/photo"
 require_relative "./models/attachment"
 require_relative "./models/parse_email"
@@ -28,18 +29,41 @@ class Wedding < Sinatra::Base
   end
 
   post "/receive_email" do
-   # begin
-   #   puts "receiving photos!"
-   #   puts params.inspect
-   #   email = ParseEmail.new(params)
-   #   email.create_files
-   #   return 200
-   # rescue
-   #   puts $!.inspect
-   #   puts $!.backtrace[0..5].join("\n")
-   #   return 500
-   # end
-   200
+    begin
+      puts "receiving photos!"
+      puts params.inspect
+      email = ParseEmail.new(params)
+      email.create_files
+      return 200
+    rescue
+      puts $!.inspect
+      puts $!.backtrace[0..5].join("\n")
+      return 200
+    end
+  end
+
+  get "/upload" do
+    erb :upload
+  end
+
+  post "/upload" do
+
+    time = Time.now
+
+      # Profile the code
+
+    params[:type] = params["file"][:type]
+    params[:_file] = params[:file].dup
+    params["file"] = params[:file][:tempfile]
+    puts params.inspect
+    a = Attachment.new(params)
+    puts a.inspect
+    a.create_s3_file!
+    a.create_s3_thumb!
+    a.create_photo!
+
+    puts Time.now - time
+    "SUCCESS"
   end
 
 end
