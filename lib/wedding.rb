@@ -27,6 +27,7 @@ end
 class Wedding < Sinatra::Base
   configure do
     enable :logging
+    Resque.redis = ENV["REDISTOGO_URL"] if ENV["REDISTOGO_URL"]
     #require_relative "../config/redis_config"
   end
 
