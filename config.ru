@@ -1,4 +1,6 @@
-ENV["RACK_ENV"] ||= "development"
 require './lib/wedding'
+require 'resque/server'
 
-run Wedding.new
+run Rack::URLMap.new \
+  "/"       => Wedding.new,
+  "/resque" => Resque::Server.new

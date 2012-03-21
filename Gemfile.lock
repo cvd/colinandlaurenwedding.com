@@ -33,6 +33,13 @@ GEM
     rack-test (0.6.1)
       rack (>= 1.0)
     redis (2.2.2)
+    redis-namespace (1.0.3)
+      redis (< 3.0.0)
+    resque (1.20.0)
+      multi_json (~> 1.0)
+      redis-namespace (~> 1.0.2)
+      sinatra (>= 0.9.2)
+      vegas (~> 0.1.2)
     rmagick (2.13.1)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
@@ -55,6 +62,8 @@ GEM
       adapter (~> 0.5.1)
       simple_uuid (~> 0.1.1)
     uuidtools (2.1.2)
+    vegas (0.1.11)
+      rack (>= 1.0.0)
     xml-simple (1.1.1)
 
 PLATFORMS
@@ -68,6 +77,7 @@ DEPENDENCIES
   exifr
   rack-test
   redis
+  resque
   rmagick
   rspec
   sinatra

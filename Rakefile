@@ -1,6 +1,10 @@
 require 'rake'
 require 'erb'
 
+task :environment do
+  require './lib/wedding'
+end
+
 task :default =>[:build]
 
 desc "Compile the assets!"
@@ -25,3 +29,12 @@ task :build do
   index =  ERB.new(layout).result(binding)
   File.open("index.html", "w") {|f| f.write index }
 end
+
+require 'resque/tasks'
+
+task "resque:setup" => :environment do
+  ENV['QUEUE'] = '*'
+end
+
+desc "Alias for resque:work (To run workers on Heroku)"
+task "jobs:work" => "resque:work"

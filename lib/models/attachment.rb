@@ -1,4 +1,9 @@
+require 'logger'
+
 class Attachment
+
+  @queue = :photos
+  LOGGER = Logger.new(File.join(File.dirname(__FILE__), "..", "..", "tmp", "dev.log"))
 
   attr_reader :filename, :content_type, :file, :metadata, :user_name,
     :user_email, :description, :title, :s3_url, :old_filename, :extname,
@@ -9,13 +14,37 @@ class Attachment
     @filename = params[:filename]
     @extname = File.extname(params[:filename])
     @content_type = params[:type]
-    @file = params[:file]
+    #Obviously Heroku Specific
+    @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
+    LOGGER.info "About to upload file: #{@file.inspect}"
+    LOGGER.info "About to upload file: #{@filename.inspect}"
     @title = params[:title]
     @description = params[:description]
     @user_name = params[:user_name]
     @user_email = params[:user_email]
     @old_filename = params[:old_filename]
     @metadata = {:content_type => @content_type, :cache_control => "max-age=2592000"}
+  end
+
+  def self.perform(params)
+    a = new(params)
+    a.create_s3_file!
+    a.create_s3_thumb!
+    a.create_photo!
+  end
+
+  def self.defer_processing(params)
+    file = params.delete('file')
+    params.delete(:_file)
+    self.save_file_local(params[:filename], file)
+    Resque.enqueue(self, params)
+  end
+
+  def self.save_file_local(file_name, file)
+    #Obviously Heroku Specific
+    File.open(File.join(FILE_DIR, file_name), "w") do |f|
+      f.puts(file.read)
+    end
   end
 
   def create_s3_file!

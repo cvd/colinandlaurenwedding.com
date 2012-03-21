@@ -45,18 +45,18 @@ class ParseEmail
         values[:old_filename] = values[:filename]
         #puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
-        Attachment.new(values)
+        Attachment.defer_processing(values)
       end.compact
     end
   end
 
   def create_files
-    attachments.each do |attachment|
-      puts "Attachment: #{attachment.inspect}"
-      attachment.create_s3_file!
-      attachment.create_s3_thumb!
-      attachment.create_photo!
-    end
+    #attachments.each do |attachment|
+      #puts "Attachment: #{attachment.inspect}"
+      #attachment.create_s3_file!
+      #attachment.create_s3_thumb!
+      #attachment.create_photo!
+    #end
   end
 
   def valid_file?(filename)

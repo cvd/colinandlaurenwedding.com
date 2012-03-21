@@ -7,11 +7,22 @@ require 'tempfile'
 require 'aws/s3'
 require 'exifr'
 require 'RMagick'
+require 'resque'
 
 require_relative "./models/photo"
 require_relative "./models/attachment"
 require_relative "./models/parse_email"
 require_relative "./models/s3_uploader"
+
+ENV["RACK_ENV"] ||= "development"
+case ENV["RACK_ENV"].downcase
+when "production"
+  FILE_DIR = "/app/tmp"
+when "development"
+  FILE_DIR = File.join(File.dirname(__FILE__), "..", "tmp")
+when "test"
+  FILE_DIR = File.join(File.dirname(__FILE__), "..", "tmp")
+end
 
 class Wedding < Sinatra::Base
   configure do
@@ -57,14 +68,9 @@ class Wedding < Sinatra::Base
     params[:_file] = params[:file].dup
     params["file"] = params[:file][:tempfile]
     puts params.inspect
-    a = Attachment.new(params)
-    puts a.inspect
-    a.create_s3_file!
-    a.create_s3_thumb!
-    a.create_photo!
-
+    a = Attachment.defer_processing(params)
     puts Time.now - time
-    "SUCCESS"
+    return 200
   end
 
 end

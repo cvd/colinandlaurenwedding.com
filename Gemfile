@@ -10,6 +10,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem 'uuidtools'
 gem 'exifr'
 gem 'rmagick'
+gem 'resque'
 
 group :test do
   gem 'rspec'
