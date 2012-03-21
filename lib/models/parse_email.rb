@@ -29,7 +29,7 @@ class ParseEmail
   end
 
   #{:filename=>"fugu.png", :type=>"image/png", :name=>"attachment1", :tempfile=>"file", :head=>"Content-Disposition: form-data; name=\"attachment1\"; filename=\"fugu.png\"\nContent-Type: image/png\n", "tempfile"=>nil}
-  def attachments
+  def parse_attachments
     @attachments ||= begin
       hash = JSON.parse(@params["attachment-info"])
       hash.map do |file_key, values|
