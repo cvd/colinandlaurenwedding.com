@@ -45,6 +45,7 @@ class Wedding < Sinatra::Base
       puts "receiving photos!"
       puts params.inspect
       ParseEmail.new(params)
+      ParseEmail.parse_attachments
       return 200
     rescue
       puts $!.inspect
