@@ -35,6 +35,7 @@ class ParseEmail
       hash.map do |file_key, values|
         values = HashWithIndifferentAccess.new(values)
         file_values = HashWithIndifferentAccess.new(@params[file_key])
+        puts "parsing attachments"
         next unless file_values.has_key?(:filename)
         next unless valid_file?(file_values[:filename])
         values[:file] = file_values["tempfile"]
@@ -45,6 +46,7 @@ class ParseEmail
         values[:old_filename] = values[:filename]
         #puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
+        puts "parsed attachments"
         Attachment.defer_processing(values)
       end.compact
     end

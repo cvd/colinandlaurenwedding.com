@@ -3,7 +3,6 @@ require 'logger'
 class Attachment
 
   @queue = :photos
-  LOGGER = Logger.new(File.join(File.dirname(__FILE__), "..", "..", "tmp", "dev.log"))
 
   attr_reader :filename, :content_type, :file, :metadata, :user_name,
     :user_email, :description, :title, :s3_url, :old_filename, :extname,
@@ -16,8 +15,8 @@ class Attachment
     @content_type = params[:type]
     #Obviously Heroku Specific
     @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
-    LOGGER.info "About to upload file: #{@file.inspect}"
-    LOGGER.info "About to upload file: #{@filename.inspect}"
+    puts "About to upload file: #{@file.inspect}"
+    puts "About to upload file: #{@filename.inspect}"
     @title = params[:title]
     @description = params[:description]
     @user_name = params[:user_name]
@@ -34,6 +33,7 @@ class Attachment
   end
 
   def self.defer_processing(params)
+    puts "Defering processing: #{params.inspect}"
     file = params.delete('file')
     params.delete(:_file)
     self.save_file_local(params[:filename], file)
