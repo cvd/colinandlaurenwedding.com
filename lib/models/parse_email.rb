@@ -47,6 +47,7 @@ class ParseEmail
         #puts "Values: #{values.inspect}"
         values[:filename] = gen_filename(values[:filename])
         puts "parsed attachments"
+        sleep 5
         Attachment.defer_processing(values)
       end.compact
     end
