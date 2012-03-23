@@ -15,6 +15,9 @@ class Attachment
     @content_type = params[:type]
     #Obviously Heroku Specific
     until File.exists? File.join(FILE_DIR, params[:filename])
+      puts "Checking File"
+      puts Dir.glob("/app/tmp/*")
+      puts Dir.glob("./tmp/*")
       sleep 2
     end
     @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
