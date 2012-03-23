@@ -15,9 +15,9 @@ class Attachment
     @content_type = params[:type]
     #Obviously Heroku Specific
     until File.exists? File.join(FILE_DIR, params[:filename])
-      @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
       sleep 2
     end
+    @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
     puts "About to upload file: #{@file.inspect}"
     puts "About to upload file: #{@filename.inspect}"
     @title = params[:title]
