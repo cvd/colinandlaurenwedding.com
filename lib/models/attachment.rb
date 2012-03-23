@@ -14,7 +14,10 @@ class Attachment
     @extname = File.extname(params[:filename])
     @content_type = params[:type]
     #Obviously Heroku Specific
-    @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
+    until File.exists? @file
+      @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
+      sleep 2
+    end
     puts "About to upload file: #{@file.inspect}"
     puts "About to upload file: #{@filename.inspect}"
     @title = params[:title]
@@ -26,6 +29,7 @@ class Attachment
   end
 
   def self.perform(params)
+
     a = new(params)
     a.create_s3_file!
     a.create_s3_thumb!
