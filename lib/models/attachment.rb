@@ -14,7 +14,7 @@ class Attachment
     @extname = File.extname(params[:filename])
     @content_type = params[:type]
     #Obviously Heroku Specific
-    until File.exists? @file
+    until File.exists? File.join(FILE_DIR, params[:filename])
       @file = File.open(File.join(FILE_DIR, params[:filename]), 'r')
       sleep 2
     end
